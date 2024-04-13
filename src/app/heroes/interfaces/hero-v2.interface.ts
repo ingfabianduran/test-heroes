@@ -81,9 +81,3 @@ export enum ItemType {
   Empty = "",
   InteriorStory = "interiorStory",
 };
-
-export interface QueryParamsHero {
-  limit: number,
-  offset: number,
-  name?: string
-};

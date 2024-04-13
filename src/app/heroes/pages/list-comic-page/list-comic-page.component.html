@@ -1,1 +1,32 @@
-<p>list-comic-page works!</p>
+<h1 class="font-semibold">Listado de Comics</h1>
+<div class="grid">
+  <div class="sm:col-12 md:col-12 xl:col-12">
+    <table mat-table [dataSource]="dataTable" class="w-full mat-elevation-z2">
+      <ng-container *ngFor="let column of configColumnsTable">
+        <ng-container [matColumnDef]="column.key" *ngIf="column.key !== 'actions' && column.key !== 'date'">
+          <th mat-header-cell *matHeaderCellDef
+            style="background-color: #673ab7; color: white; font-weight: 700; font-size: 16px; text-align: center;">{{
+            column.name }}</th>
+          <td mat-cell *matCellDef="let element" class="text-center"> {{ element[column.key] }} </td>
+        </ng-container>
+        <ng-container [matColumnDef]="column.key" *ngIf="column.key === 'date'">
+          <th mat-header-cell *matHeaderCellDef
+            style="background-color: #673ab7; color: white; font-weight: 700; font-size: 16px; text-align: center;">{{
+            column.name }}</th>
+          <td mat-cell *matCellDef="let element" class="text-center"> {{ element[column.key] | date: 'shortDate' }}
+          </td>
+        </ng-container>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="keysColumnsTable"></tr>
+      <tr style="background: white" mat-row *matRowDef="let row; columns: keysColumnsTable;"></tr>
+      <tr class="mat-row" style="background: white" *matNoDataRow>
+        <td class="mat-cell text-center" style="font-weight: 600; font-size: 14px;"
+          [attr.colspan]="keysColumnsTable.length">La búsqueda no coincide con los
+          registros</td>
+      </tr>
+    </table>
+  </div>
+  <mat-paginator class="sm:col-12 md:col-12 xl:col-12" [length]="length" [pageSize]="limit"
+    [pageSizeOptions]="[5, 10, 25, 50]" (page)="onChangePage($event)">
+  </mat-paginator>
+</div>
