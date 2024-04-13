@@ -1,6 +1,10 @@
-<h1>Listado de Heroes</h1>
-<div class="grid p-4">
-  <div class="sm:col-12 md:col-4 xl:col-3" *ngFor="let hero of heroes">
+<h1 class="font-semibold">Listado de Heroes</h1>
+<mat-form-field class="w-3" appearance="fill">
+  <mat-label>Nombre del Heroe</mat-label>
+  <input [(ngModel)]="name" matInput placeholder="Superman" (blur)="listHeroes()">
+</mat-form-field>
+<div class="grid">
+  <div class="sm:col-12 md:col-4 xl:col-4" *ngFor="let hero of heroes">
     <heroes-hero-card [hero]="hero"></heroes-hero-card>
   </div>
   <mat-paginator class="w-full" [length]="length" [pageSize]="limit" [pageSizeOptions]="[5, 10, 25, 50]"

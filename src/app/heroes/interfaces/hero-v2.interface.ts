@@ -65,12 +65,6 @@ export interface URL {
   url: string;
 };
 
-export interface QueryParamsHero {
-  limit: number,
-  offset: number,
-  name?: string
-};
-
 export enum URLType {
   Comiclink = "comiclink",
   Detail = "detail",
@@ -86,4 +80,10 @@ export enum ItemType {
   Cover = "cover",
   Empty = "",
   InteriorStory = "interiorStory",
+};
+
+export interface QueryParamsHero {
+  limit: number,
+  offset: number,
+  name?: string
 };

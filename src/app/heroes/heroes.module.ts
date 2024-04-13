@@ -5,15 +5,17 @@ import { LayoutPageComponent } from './pages/layout-page/layout-page.component';
 import { ListPageComponent } from './pages/list-page/list-page.component';
 import { MaterialModule } from '../material/material.module';
 import { CardComponent } from './components/card/card.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ListComicPageComponent } from './pages/list-comic-page/list-comic-page.component';
 
 @NgModule({
-  declarations: [LayoutPageComponent, ListPageComponent, CardComponent],
+  declarations: [LayoutPageComponent, ListPageComponent, CardComponent, ListComicPageComponent],
   imports: [
     CommonModule,
     HeroesRoutingModule,
     MaterialModule,
-    ReactiveFormsModule
+    FormsModule,
+    ReactiveFormsModule,
   ]
 })
 export class HeroesModule { }

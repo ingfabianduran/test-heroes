@@ -8,8 +8,14 @@ import { Heroes, QueryParamsHero } from '../interfaces/hero-v2.interface';
 export class HeroesService {
   private root_url: string = `${environment.API_URL}characters`;
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
+  /**
+    * @author Fabian Duran
+    * @createdate 2024-04-12
+    * Metodo que trae los heroes registrados en el sistema.
+    * @param params Parametros de busqueda
+  */
   getHeroesV2(params: QueryParamsHero): Observable<Heroes> {
     let queryParams = new HttpParams()
       .append('limit', params.limit.toString())

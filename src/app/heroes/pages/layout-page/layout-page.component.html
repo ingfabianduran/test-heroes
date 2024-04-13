@@ -5,7 +5,6 @@
         color: rgb(255 255 255 / 74%) !important;
       ">
       <span>Menu</span>
-      <span class="spacer"></span>
       <button mat-icon-button (click)="sidenav.toggle()">
         <mat-icon>menu</mat-icon>
       </button>
@@ -17,15 +16,12 @@
       </mat-list-item>
     </mat-nav-list>
   </mat-sidenav>
-
   <mat-toolbar color="primary">
     <button mat-icon-button (click)="sidenav.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
-    <span class="spacer"></span>
   </mat-toolbar>
-
-  <div class="container p-2 pt-4">
+  <div class="p-5">
     <router-outlet></router-outlet>
   </div>
 </mat-sidenav-container>

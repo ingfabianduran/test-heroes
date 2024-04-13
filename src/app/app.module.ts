@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { SetupInterceptor } from './interceptors/setup.interceptor';
 
 @NgModule({
   declarations: [
@@ -21,7 +21,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: LoaderInterceptor,
+      useClass: SetupInterceptor,
       multi: true
     },
   ],
