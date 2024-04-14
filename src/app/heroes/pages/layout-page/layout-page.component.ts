@@ -6,9 +6,5 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class LayoutPageComponent {
-  sideBarItems = [
-    { label: 'Listado', icon: 'label', url: './list' },
-  ]
-
   constructor() { }
 }

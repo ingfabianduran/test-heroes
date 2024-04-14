@@ -1,7 +1,7 @@
 <h1 class="font-semibold">Listado de Comics</h1>
 <div class="grid">
   <div class="sm:col-12 md:col-12 xl:col-12">
-    <table mat-table [dataSource]="dataTable" class="w-full mat-elevation-z2">
+    <table mat-table [dataSource]="dataTable" class="w-full">
       <ng-container *ngFor="let column of configColumnsTable">
         <ng-container [matColumnDef]="column.key" *ngIf="column.key !== 'actions' && column.key !== 'date'">
           <th mat-header-cell *matHeaderCellDef
