@@ -12,17 +12,17 @@ import { ConfigColumnsTable } from '../../interfaces/global.interface';
 })
 export class ListComicPageComponent implements OnInit {
   configColumnsTable: ConfigColumnsTable[] = [
-    { name: 'Caratula', key: 'image' },
+    { name: 'Caratula', key: 'formatThumbnail' },
     { name: 'Título', key: 'title' },
-    { name: 'Fecha de venta', key: 'saleDate' },
+    { name: 'Fecha de venta', key: 'saleDateFormat' },
     { name: 'Descripción', key: 'description' },
     { name: 'UPC', key: 'upc' },
-    { name: 'Fecha de modificación', key: 'modificationDate' },
-    { name: 'Creadores', key: 'creators' },
-    { name: 'Personajes', key: 'characters' },
-    { name: 'Precio de impresion', key: 'prices' },
+    { name: 'Fecha de modificación', key: 'modifiedDateFormat' },
+    { name: 'Creadores', key: 'formatCreators' },
+    { name: 'Personajes', key: 'formatCharacters' },
+    { name: 'Precio de impresion', key: 'formatPrintPrice' },
   ];
-  keysColumnsTable: string[] = ['image', 'title', 'saleDate', 'description', 'upc', 'modificationDate', 'creators', 'characters', 'prices'];
+  keysColumnsTable: string[] = ['formatThumbnail', 'title', 'saleDateFormat', 'description', 'upc', 'modifiedDateFormat', 'formatCreators', 'formatCharacters', 'formatPrintPrice'];
   dataTable: Result[] = [];
   length: number = 0;
   limit: number = 5;
@@ -43,6 +43,7 @@ export class ListComicPageComponent implements OnInit {
   */
   listComics(): void {
     this.heroService.getComicsByHero({ limit: this.limit, offset: this.offset, heroId: this.heroId }).subscribe(res => {
+      this.dataTable = res.data.results;
       this.length = res.data.total;
     });
   }
@@ -55,5 +56,6 @@ export class ListComicPageComponent implements OnInit {
   onChangePage($event: PageEvent): void {
     this.limit = $event.pageSize;
     this.offset = this.limit * $event.pageIndex;
+    this.listComics();
   }
 }

@@ -46,6 +46,12 @@ export interface Result {
   characters: Characters;
   stories: Stories;
   events: Characters;
+  formatThumbnail: string;
+  saleDateFormat: string;
+  modifiedDateFormat: string;
+  formatCreators: string;
+  formatCharacters: string;
+  formatPrintPrice: string;
 };
 
 export interface Characters {
