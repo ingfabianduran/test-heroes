@@ -14,6 +14,7 @@ export class ListPageComponent implements OnInit {
   length: number = 0;
   limit: number = 5;
   offset: number = 0;
+  pageIndex: number = 0;
   name: string | null = null;
 
   constructor(private heroesService: HeroesService) { }
@@ -40,6 +41,7 @@ export class ListPageComponent implements OnInit {
     * @param $event Evento emitido por el paginador.
   */
   onChangePage($event: PageEvent): void {
+    this.pageIndex = $event.pageIndex;
     this.limit = $event.pageSize;
     this.offset = this.limit * $event.pageIndex;
     this.listHeroes();

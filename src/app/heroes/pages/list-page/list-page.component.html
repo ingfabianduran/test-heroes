@@ -1,13 +1,13 @@
 <h1 class="font-semibold">Listado de Heroes</h1>
 <mat-form-field class="w-3" appearance="fill">
   <mat-label>Nombre del Heroe</mat-label>
-  <input [(ngModel)]="name" matInput placeholder="Superman" (blur)="listHeroes()">
+  <input [(ngModel)]="name" matInput placeholder="Superman" (blur)="pageIndex = 0; listHeroes()">
 </mat-form-field>
 <div class="grid">
   <div class="sm:col-12 md:col-4 xl:col-4" *ngFor="let hero of heroes">
     <heroes-hero-card [hero]="hero"></heroes-hero-card>
   </div>
-  <mat-paginator class="sm:col-12 md:col-12 xl:col-12" [length]="length" [pageSize]="limit" [pageSizeOptions]="[5, 10, 25, 50]"
-    (page)="onChangePage($event)">
+  <mat-paginator class="sm:col-12 md:col-12 xl:col-12" [pageIndex]="pageIndex" [length]="length" [pageSize]="limit"
+    [pageSizeOptions]="[5, 10, 25, 50]" (page)="onChangePage($event)">
   </mat-paginator>
 </div>
