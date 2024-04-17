@@ -119,6 +119,9 @@
               "devServerTarget": "heroesApp:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
